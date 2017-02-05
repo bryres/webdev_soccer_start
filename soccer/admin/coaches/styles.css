@@ -1,0 +1,197 @@
+
+.title {
+    margin-top: 1.25em !important;
+    color: rgb(253, 253, 253) !important;
+}
+
+header {
+    height: 4.25em;
+}
+
+button{
+    margin-bottom: 1em;
+}
+
+
+.s {
+    background-color: rgb(110, 41, 135);
+    margin-right: 2em;
+}
+
+.s:hover {
+    background-color: rgb(121, 35, 152);
+    cursor: pointer;
+}
+
+.b {
+    background-color: rgb(54, 54, 143);
+}
+
+.b:hover {
+    background-color: rgb(51, 51, 161);
+    cursor: pointer;
+}
+
+a:hover, a:active {
+    opacity: inherit;
+}
+
+.cell {
+    display: block;
+    float: left;
+    vertical-align: middle;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    -webkit-transition: all 175ms ease;
+    -moz-transition: all 175ms ease;
+    transition: all 175ms ease;
+    font-weight: 500;
+    text-align: left;
+}
+
+.widecol{
+    width: 23%;
+}
+
+.delcol{
+    width: 8%;
+    text-align: center;
+    display: inline-block;
+    font-family: "bca-icons";}
+
+.navbar {
+    height: 5.2em;
+    width:85%;
+    min-width:70em;
+    line-height: 5.2em;
+    margin: 0 auto;
+    padding: 0 0 0 20px;
+    background: rgb(35, 129, 113);
+    box-shadow: 0 0.3125em 0.9375em rgba(0, 0, 0, 0.33);
+    color:white;
+}
+
+.navbar .cell {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #e1e1e1;
+}
+.list-container {
+    height: auto;
+    width: 85%;
+    min-width: 70em;
+    margin: 0 auto;
+    padding: 0;
+    background: rgba(253, 253, 253, 0.8);
+    box-shadow: 0 0.3125em 0.9375em rgba(0, 0, 0, 0.33);
+    margin-bottom: 3em;
+}
+
+.list-container .row {
+    height: 2.75em;
+    width: 100%;
+    line-height: 2.75em;
+    font-size:1.5em;
+    padding: 0 0 0 20px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+    -webkit-transition: all 175ms ease;
+    -moz-transition: all 175ms ease;
+    transition: all 175ms ease;
+}
+
+.list-container .row .wrapper .cell {
+    color: rgb(57, 52, 57);
+}
+
+.list-container .row:hover {
+    background: rgb(183, 146, 197);
+    border-bottom: 1px solid rgb(183, 146, 197);
+    box-shadow: 0 -0.0625em 0 rgb(183, 146, 197);
+}
+
+/**
+ * Featherlight - ultra slim jQuery lightbox
+ * Version 1.3.4 - http://noelboss.github.io/featherlight/
+ *
+ * Copyright 2015, No├½l Raoul Bossart (http://www.noelboss.com)
+ * MIT Licensed.
+**/
+@media all {
+    .featherlight {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2147483647;
+        text-align: center;
+        white-space: nowrap;
+        cursor: pointer;
+        background: #333;
+        background: transparent;
+    }
+
+    .featherlight:last-of-type {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .featherlight:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em;
+    }
+
+    .featherlight .featherlight-content {
+        position: relative;
+        text-align: left;
+        vertical-align: middle;
+        display: inline-block;
+        overflow: auto;
+        padding: 25px 25px 0;
+        border-bottom: 25px solid transparent;
+        min-width: 30%;
+        margin-left: 5%;
+        margin-right: 5%;
+        max-height: 95%;
+        background: #fff;
+        cursor: auto;
+        white-space: normal;
+    }
+
+    .featherlight .featherlight-inner {
+        display: block;
+    }
+
+    .featherlight .featherlight-close-icon {
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        right: 0;
+        line-height: 25px;
+        width: 25px;
+        cursor: pointer;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background: #fff;
+        background: rgba(255, 255, 255, 0.3);
+        color: #000;
+    }
+
+    .featherlight .featherlight-image {
+        width: 100%;
+    }
+
+    .featherlight-iframe .featherlight-content {
+        border-bottom: 0;
+        padding: 0;
+    }
+
+    .featherlight iframe {
+        border: 0;
+    }
+}

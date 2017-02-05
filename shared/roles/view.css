@@ -1,0 +1,183 @@
+/**********color reference chart**********
+comment ****************** color ********
+
+P1, blue                  rgb(89, 89, 171)   #5959AB 
+P2, purple                rgb(139, 74, 162)  #8B4AA2 
+P3, green                  rgb(67, 155, 140)   #439B8C
+
+S1-1, bright blue          rgb(51, 51,161)    #3333A1
+S1-2, bright purple        rgb(121, 35, 152)  #792398
+S1-3, bright green         rgb(28, 145, 126)  #1C917E
+
+S2-1, dark blue            rgb(54, 54, 143)   #36368F
+S2-2, dark purple          rgb(110, 41, 135)  #6E2987
+S2-3, dark green           rgb(35, 129, 113)  #238171
+
+S3-1, light blue           rgb(142, 142, 207)  #8E8ECF
+S3-2, light purple         rgb(183, 129, 201)  #B781C9
+S3-3, light green          rgb(123, 197, 184)  #7BC5B8
+
+S4-1, lighter blue         rgb(157, 157, 203)  #9D9DCB
+S4-2, lighter purple       rgb(183, 146, 197)  #B792C5
+S4-3, lighter green        rgb(140, 191, 183)  #8CBFB7
+
+
+
+G1, dark                   rgb(84, 79, 84)
+G2, med                    rgb(147, 146, 149)
+G3, light                  rgb(253, 253, 253)
+
+*/
+
+/**********icon reference chart**********
+char ******** icon ********
+
+c             close   (X)
+p             plus    (+)
+i             info    (i)
+d             delete  (trashcan)
+m             modify  (pencil)
+
+*/
+
+h4 {
+    font-size: 1.25em;
+}
+
+#box {
+    display: block;
+    background-color: rgba(253, 253, 253, 0.8);
+    width: 60em;
+    height: 50em;
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+th {
+    text-align: left;
+}
+
+tr td input {
+    width: 12em;
+    text-align: center;
+}
+
+#wrapper {
+    width: 85%;
+    height: 100%;
+    /*position: absolute;*/
+    /*margin: auto;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+}
+
+#wrapper2{
+    width: 85%;
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#users {
+    margin-left: 3em;
+    margin-right: 1em;
+    float: left;
+    width: 16em;
+}
+
+#role{
+    float: left;
+    margin-left: 3em;
+    width: 15em;
+}
+
+#delete {
+    float: right;
+    width: 5em;
+    margin-right: 3em;
+    margin-top: 3.2em;
+}
+
+#se-wrap {
+    z-index: 100;
+    float: right;
+    width: 31em;
+}
+
+#columns {
+    /*display: block;*/
+    width: 100%;
+    /*position: absolute;*/
+    margin: auto;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+}
+
+#button-div {
+    width: 40em;
+    height: auto;
+    margin: auto;
+}
+
+.b {
+    margin-top: 1em;
+    margin-left: 7em;
+}
+
+#add {
+    z-index: -2;
+    display: block;
+    width: 100%;
+    position: relative;
+    margin: auto;
+    margin-top: 5em;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+h4.delete:hover{
+    cursor: pointer;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 28em;
+}
+
+td:first-child {
+    width: 14em;
+}
+
+td:nth-child(2) {
+    width: 12em;
+}
+
+td:last-of-type {
+    width: 2em;
+}
+
+select {
+    font-size: 1.1em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li:last-child {
+    width: 8em;
+}
+
+.s {
+    width: 8em;
+}

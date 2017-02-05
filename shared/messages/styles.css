@@ -1,0 +1,48 @@
+.error {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    background-color: #333;
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 100%;
+    color: #fdfdfd;
+    text-align: center; }
+
+.error:last-child {
+    margin-right: 0; }
+
+.error .vertical-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%); }
+
+.error h1 {
+    font-size: 10em;
+    font-family: 'Permanent Marker', cursive;
+    margin: .5em 0 0 0;
+}
+
+.error h2 {
+    color: #999;
+    font-size: 1.5em;
+    line-height: 1em;
+    margin: 1em 0 0 0;
+}
+
+.error h3 {
+    color: #999;
+    font-size: 1em;
+    line-height: 1em;
+    margin: 1em 0 0 0;
+}
+
+.error button {
+    margin-top: 2em;
+}

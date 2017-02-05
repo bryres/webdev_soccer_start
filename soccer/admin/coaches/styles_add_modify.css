@@ -1,0 +1,60 @@
+.box {
+    display: block;
+    background-color: rgba(253, 253, 253, 0.9);
+    width: 60em;
+    height: 45em;
+    position:absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper {
+    width: 85%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.columns {
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-div {
+    text-align: center;
+    width: 50em;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 0.75em;
+}
+
+label {
+    display: inline-block;
+    width: 20%;
+    padding-right: 1em;
+    font-size: 1.5em;
+    text-align: right;
+}
+
+input {
+    width: 75%;
+    font-size: 1.3em;
+}
+
+.submit {
+    margin-top: 2em;
+}
+
+

@@ -1,0 +1,206 @@
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/**********color reference chart**********
+comment ****************** color ********
+
+P1, blue                  rgb(89, 89, 171)//#5959AB 
+P2, purple                rgb(139, 74, 162)//#8B4AA2 
+P3, green                  rgb(67, 155, 140)//#439B8C
+
+S1-1, bright blue          rgb(51, 51,161)//#3333A1
+S1-2, bright purple        rgb(121, 35, 152)//#792398
+S1-3, bright green         rgb(28, 145, 126)//#1C917E
+
+S2-1, dark blue            rgb(54, 54, 143)//#36368F
+S2-2, dark purple          rgb(110, 41, 135)//#6E2987
+S2-3, dark green           rgb(35, 129, 113)//#238171
+
+S3-1, light blue           rgb(142, 142, 207)//#8E8ECF
+S3-2, light purple         rgb(183, 129, 201)//#B781C9
+S3-3, light green          rgb(123, 197, 184)//#7BC5B8
+
+S4-1, lighter blue         rgb(157, 157, 203)//#9D9DCB
+S4-2, lighter purple       rgb(183, 146, 197)//#B792C5
+S4-3, lighter green        rgb(140, 191, 183)//#8CBFB7
+
+
+
+G1, dark                   rgb(84, 79, 84)
+G2, med                    rgb(147, 146, 149)
+G3, light                  rgb(253, 253, 253)
+
+*/
+
+/**********icon reference chart**********
+char ******** icon ********
+
+c             close   (X)
+p             plus    (+)
+i             info    (i)
+d             delete  (trashcan)
+m             modify  (pencil)
+
+*/
+
+body {
+    margin: 0;
+}
+
+.login-intro {
+    color: rgb(253, 253, 253);
+}
+
+.login-intro .vertical-center {
+    margin-top: 5em;
+}
+
+button {
+    color: inherit;
+    font: inherit;
+    margin: 0; }
+
+.main {
+    height: 100%;
+    overflow-y: hidden;
+    background: rgb(253, 253, 253); }
+/*# sourceMappingURL=main.css.map */
+
+.login {
+    background: rgb(253, 253, 253); }
+.login .login-intro {
+    float: left;
+    display: block;
+    margin-right: 0%;
+    width: 66.66667%;
+    padding: 15.625em 9.375em;
+    -webkit-box-shadow: 0 0.1875em 0.4375em 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0.1875em 0.4375em 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.1875em 0.4375em 0 rgba(0, 0, 0, 0.15);
+    background-color: #5959AB;
+    height: 100%; }
+.login .login-intro:last-child {
+    margin-right: 0; }
+
+@media screen and (max-width: 800px) {
+    .login .login-intro {
+        padding: 1.875em 3.125em;
+        height: 60%;
+        width: 100%;
+        overflow-y: scroll;
+    }
+}
+@media screen and (max-width: 600px) {
+    .login .login-intro {
+        padding: 1.875em 3.125em;
+        height: 60%;
+        width: 100%;
+        overflow-y: scroll;
+    }
+}
+.login .login-main {
+    float: right;
+    display: block;
+    margin-right: 0%;
+    width: 33.33333%;
+    padding: 12em 3.125em 0; }
+.login .login-main:last-child {
+    margin-right: 0; }
+.login .login-main input {
+    border-radius: 1.25em;
+    margin: 0 0 10px 0;
+    padding: 0 15px;
+    width: 25em;
+    font-size: 1em;
+    height: 3.125em;
+    width: 100%; }
+.login .login-main button {
+    /*font-size: 1em;*/
+    background-color: #8B4AA2;
+    color: rgb(253, 253, 253);
+    font-size: 2em;
+    margin: 60px 0;
+    width: 100%;
+    height: 1.75em;
+    cursor: pointer;
+}
+
+.login .login-main button:hover {
+    background-color: rgb(121, 35, 152); }
+
+a, a:hover {
+    opacity: inherit;
+}
+
+.login .login-main .vertical-center {
+    width: 80%;
+    margin: auto;
+}
+
+@media screen and (max-width: 800px) {
+    .login .login-main {
+        padding: 1.875em 3.125em;
+        height: 40%;
+        width: 100%;
+        font-size: 0.75em;
+        overflow-y: scroll;
+    }
+
+    .login .login-main button {
+        margin: 20px 0;
+    }
+}
+@media screen and (max-width: 600px) {
+    .login .login-main {
+        padding: 1.875em 3.125em;
+        height: 40%;
+        width: 100%;
+        font-size: 0.625em;
+        overflow-y: scroll;
+    }
+
+    .login .login-main button {
+        margin: 20px 0;
+    }
+}
+
+
+.login .login-header {
+    float: right;
+    display: block;
+    width: 33.33333%;
+    height: 15em;
+    background-color: #439B8C;
+    color: rgb(253, 253, 253);
+}
+
+.login .login-header h1{
+    text-align: center;
+    margin-top: 1.75em;
+}
+
+@media screen and (max-width: 800px) {
+    .login .login-header {
+        padding: 0;
+        height: 0%;
+        width: 100%;
+        font-size: 0.75em;
+    }
+
+    .login .login-header h1{
+        text-align: center;
+        margin-top: 1em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .login .login-header {
+        padding: 0;
+        height: 0%;
+        width: 100%;
+        font-size: 0.625em; }
+
+    .login .login-header h1{
+        text-align: center;
+        margin-top: 1em;
+    }
+}

@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../../shared/ss/main.css<?php echo(getVersionString()); ?>" rel="stylesheet" type="text/css"/>
     <link href="/<?php echo $app_url_path ?>/../shared/roles/view.css<?php echo(getVersionString()); ?>" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.min.css<?php echo(getVersionString()); ?>">
-    <script src="Semantic-UI-CSS-master/semantic.min.js<?php echo(getVersionString()); ?>"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js<?php echo(getVersionString()); ?>"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js<?php echo(getVersionString()); ?>"></script>
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css<?php echo(getVersionString()); ?>" rel="stylesheet">

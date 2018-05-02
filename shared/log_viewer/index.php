@@ -6,8 +6,7 @@
  * Time: 9:19 AM
  */
 
-require_once (__DIR__ . "/../util/main.php");
-require_once (__DIR__ . "/../model/admin_db.php");
+include (__DIR__ . "/../model/admin_db.php");
 
 verify_admin();
 

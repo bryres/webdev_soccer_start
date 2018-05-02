@@ -2,11 +2,12 @@
 
 function get_assigned_roles() {
     $query = 'select u.usr_id, u.usr_last_name, u.usr_first_name, x.usr_role_cde, usr_role_desc 
-from role_application_user_xref x, user u, user_role r
-where x.usr_id = u.usr_id
-and x.usr_role_cde= r.usr_role_cde
-and x.app_cde = r.app_cde
-and x.app_cde = :app_cde';
+                from role_application_user_xref x, user u, user_role r
+                where x.usr_id = u.usr_id
+                and x.usr_role_cde= r.usr_role_cde
+                and x.app_cde = r.app_cde
+                and x.app_cde = :app_cde
+                order by u.usr_last_name, u.usr_first_name';
 
     global $db;
     global $app_cde;
@@ -27,7 +28,6 @@ and x.app_cde = :app_cde';
 function get_users() {
     $query = 'select usr_last_name, usr_first_name, usr_id
         from user
-        where usr_active = 1
         order by usr_last_name, usr_first_name';
 
     global $db;
@@ -68,8 +68,8 @@ order by usr_role_desc';
 function get_teacher_list(){
     $query = "select concat('\"', usr_last_name, ', ', usr_first_name, '\"') as teachers, usr_id
                 from user u
-                where usr_active = 1
-                order by usr_last_name, usr_first_name";
+                where usr_type_cde = 'TCH'
+                order by usr_last_name";
 
     global $db;
 
@@ -118,5 +118,3 @@ function delete_admin($usr_id, $usr_role_cde) {
         exit();
     }
 }
-
-?>

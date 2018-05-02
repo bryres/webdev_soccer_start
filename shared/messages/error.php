@@ -13,9 +13,9 @@
 		<form action="" method="get">
 			<div class="error">
 	                <h1><i>oops...</i></h1>
-	                <h3><i>
-	                	<?php echo $error_message ?>
-	                </i></h3>
+	                <h3>
+	                	<?php echo str_replace( "\n", '<h3/><h3>', $error_message);  ?>
+	                </h3>
 
 				<div id="button-div">
 					<button style="cursor: pointer" class="submit s" type="submit" name="choice" value="Back" onclick="history.back();">

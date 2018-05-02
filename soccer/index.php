@@ -18,7 +18,9 @@ $loginInfo = '<h1>Soccer Database</h1>
  * which contains the meat of the login handling code.
  */
 require_once("util/main.php");
-//include (__DIR__ . "/../shared/index.php");
-include (__DIR__ . "/../shared/login/index.php");
-
-?>
+if (isset($_SESSION['user'])) {
+    goToLandingPage();
+}
+else {
+    include(__DIR__ . "/../shared/login/index.php");
+}

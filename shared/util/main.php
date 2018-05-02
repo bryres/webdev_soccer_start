@@ -3,22 +3,26 @@
 
 //
 // Common imports that should be available on all pages.
-// Add them here.
+// Add them here. THISXXX
 //
 require_once(__DIR__ . "/../model/database.php");
 require_once(__DIR__ . "/../../shared/model/user_db.php");
 
 $shared_ss_url = $server_web_root . '/shared/ss/main.css';
 $shared_url_path = $server_web_root . '/shared';
-$version_number = 1;
-    
+$version_number = 32;
+
+date_default_timezone_set('America/New_York');
+
 ////////////////////////////
 // Start Session and security check.
 // If the user is not logged in, send them to the login page.
 //
 session_start();
-if (isset($_SESSION['user']))
+if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
+    set_db_user();
+}
 
 /* Displays a message to the user.  When the user presses ok, redirects user to $next_page. */
 function display_user_message ($message, $next_page) {
@@ -188,6 +192,20 @@ function verify_admin() {
     }
 }
 
+function verify_DAmember() {
+    global $app_cde;
+    global $app_url_path;
+    global $user;
+
+    verify_logged_in();
+
+    if ($user->getRole($app_cde) != 'DAM') {
+        log_error ("Permission exception in verify_DAmember.  User id:" . $user->usr_id);
+        display_user_message("Permission denied.  You are not a DA member.", '/' . $app_url_path . '/index.php');
+        exit();
+    }
+}
+
 function verify_teacher() {
     global $app_cde;
     global $app_url_path;
@@ -196,6 +214,20 @@ function verify_teacher() {
     verify_logged_in();
 
     if ($user->usr_type_cde != 'TCH') {
+        log_error ("Permission exception in verify_teacher.  User id:" . $user->usr_id);
+        display_user_message("Permission denied.  You are not a teacher.", '/' . $app_url_path . '/index.php');
+        exit();
+    }
+}
+
+function verify_counselor() {
+    global $app_cde;
+    global $app_url_path;
+    global $user;
+
+    verify_logged_in();
+
+    if ($user->usr_type_cde != 'CNS' || $user->usr_type_cde != 'ADM') {
         log_error ("Permission exception in verify_teacher.  User id:" . $user->usr_id);
         display_user_message("Permission denied.  You are not a teacher.", '/' . $app_url_path . '/index.php');
         exit();
@@ -260,5 +292,122 @@ function getVersionString() {
     return "?v=" . $version_number;
 }
 
+function getBreadcrumbs($path=null) {
+    global $app_url_path;
+    global $app_title;
+    global $server_web_root;
+    $breadcrumbs = '';
 
-?>
+    $breadcrumbs .= '<div id="breadcrumb-d"><nav><div class="breadcrumb-nav">
+            <div class="col s12">
+            <a href="/' . $server_web_root . '/dashboard" class="breadcrumb">Dashboard </a>';
+
+    if ($path != null) {
+        foreach ($path as $crumb) {
+            $breadcrumbs .= '<a href="' . $crumb["link"] . '" class="breadcrumb">' . $crumb["name"] . ' </a>';
+        }    
+    } 
+    $breadcrumbs .= '</div></div></nav></div>';   
+        
+    return $breadcrumbs;
+}
+
+
+function generateHeader($head, $path=null) {
+    global $app_url_path;
+    global $shared_url_path;
+    global $user;
+    $apps = get_apps();
+    $breadcrumbs = getBreadcrumbs($path);
+
+    // dynamic navbar
+    
+    $result = '';
+    foreach ($apps as $app) { 
+        $result .= '<li><a class="nav-link" style="color: #e0e0e0;" href="'. $app["link"] .'" target="' . $app["target"] . '"><i class="fa fa-lg' . ' ' . $app["fa_icon"] . '" aria-hidden="true"></i>' . $app["title"] . '</a></li>';
+    } 
+
+
+    // mimic user logout
+    if (isset($_SESSION['prev_usr_id'])) {
+        $ret = '<li><a class="nav-text black-text" href="/' . $shared_url_path . '/../dashboard/index.php?ret_admin=/' . $app_url_path . '/admin" style="float: left;">Exit Mimic of ' . $user->usr_first_name . " " . $user->usr_last_name . '</a></li>';
+    } else {
+        $ret = '<li><a id="dash-name" class="nav-text black-text" href="#" style="float: left;">' .  $user->usr_first_name . " " . $user->usr_last_name  . '</a></li>';
+    }
+
+// <script defer src="/' . $shared_url_path .'//fonts/fontawesome-free-5.0.8/svg-with-js/js/fontawesome-all.js"></script>
+
+    echo '<!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="utf-8">
+          <title>Dashboard</title>
+          <meta content="" name="description">
+          <meta content="" name="author">
+          <meta content="width=device-width, initial-scale=1" name="viewport">
+
+          <link rel="stylesheet" href="/' . $shared_url_path .'/ss/materialize.min.css">
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+          <link rel="stylesheet" href="/' . $shared_url_path .'/fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.css"> 
+          <script src="/' . $shared_url_path .'/js/jquery.min.js' . getVersionString() . '"></script>
+          <script src="/' . $shared_url_path .'/js/materialize.min.js"></script>
+          
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Palanquin:100,300,400,500,600,700">
+          <link rel="stylesheet" href="/' . $shared_url_path .'/ss/dashboard.css' .getVersionString() . '">'
+            . $head .
+        '</head>
+        
+    <body>
+        <div id="background">
+        <div class="navbar-fixed">
+          <nav>
+            <div class="nav-wrapper ">
+             <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">' . $ret . '
+              <li><i class="material-icons black-text">settings</i></li>
+                <li><a class="nav-text black-text" href="/'  . $shared_url_path . '/../dashboard/index.php?action=logout">Log out</a></li>
+              </ul>
+        
+        
+            </div>
+          </nav></div>  <div class="navbar-fixed">' . $breadcrumbs .
+        
+        '</div><div id="side-nav-div" class="container">
+         <ul id="slide-out" class="side-nav fixed">
+              
+        
+        <div id="nav-top-bar">
+        <li><a id="head" href="/' . $shared_url_path . '/../dashboard/" class="center">BCA
+        <p class="center subtext">';
+
+        if ($user->usr_type_cde == 'TCH')
+            echo 'Teacher ';
+        else if ($user->usr_type_cde == 'ADM')
+            echo 'Admin ';
+        else if ($user->usr_type_cde == 'STD')
+            echo 'Student ';
+
+        echo 'Dashboard</p></a></li>
+        
+              
+              
+        </div>
+        <div id="nav-wrapper-impt">'.
+            $result . 
+        '</div>
+            </ul>
+        
+           </div>
+        </div><main>';
+
+        
+}
+
+function writeFooter() {
+    global $shared_url_path;
+    echo '</main><script src="/'. $shared_url_path .'/js/dashboard.js"></script>
+        <script src="/' . $shared_url_path .'/js/jquery.easing.min.js' . getVersionString() . '"></script>
+        <script src="/' . $shared_url_path .'/js/jquery.plusanchor.min.js' . getVersionString() . '"></script>';
+
+
+}

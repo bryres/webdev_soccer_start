@@ -1,15 +1,17 @@
-<html>
-<title>Log Viewer</title>
+<?php
+$head = '<link rel="stylesheet" href="/' . $shared_url_path .'/log_viewer/styles.css' .getVersionString() . '">';
+$path = array
+(
+    array("name" => $app_title, "link" => '/' . $app_url_path),
+    array("name" => 'Admin', "link" => '/' . $app_url_path . '/admin'),
+    array("name" => 'Log Viewer', "link" => '/' . $app_url_path . '/admin/log_viewer'),
+);
+generateHeader($head, $path);
+?>
 
-<link rel="stylesheet" type="text/css" href="../../../shared/ss/main.css<?php echo(getVersionString()); ?>">
-<link rel="stylesheet" type="text/css" href="../../../shared/log_viewer/styles.css<?php echo(getVersionString()); ?>">
-
-<section style="margin:0;padding:5em;">
-    <h1 style="display:inline-block;">Log Viewer</h1>
-    <a style="display:inline-block; padding-left:3em;" href=".."><button class="b">Go Back</button></a>
-    <table class="gridtable" style="width:50%;">
-
-
+<section style="margin:0;padding:1em;">
+    <h3 style="display:inline-block;">Log Viewer</h3>
+    <table class="striped" style="width:95%;">
 
         <tr class="tablerow">
             <th>Date/Time </th>
@@ -20,23 +22,21 @@
         </tr>
 
         <?php foreach ($logs as $log) :
-        // Get product data
-        $logDate = $log['log_dt'];
-        $logLvl = $log['log_lvl_cde'];
-        $logMsg = $log['log_msg'];
-        $logName = $log['name'];
+            // Get product data
+            $logDate = $log['log_dt'];
+            $logLvl = $log['log_lvl_cde'];
+            $logMsg = $log['log_msg'];
+            $logName = $log['name'];
 
-        ?>
-        <tr>
-            <td nowrap><?php echo $logDate; ?></td>
-            <td nowrap><?php echo $logLvl; ?></td>
-            <td nowrap><?php echo $logName; ?></td>
-            <td nowrap><?php echo $logMsg; ?></td>
-
-
-
-            <?php endforeach; ?>
+            ?>
+            <tr>
+                <td class="small_column"><?php echo $logDate; ?></td>
+                <td class="small_column"><?php echo $logLvl; ?></td>
+                <td class="small_column"><?php echo $logName; ?></td>
+                <td class="log_msg"><?php echo $logMsg; ?></td>
+            </tr>
+        <?php endforeach; ?>
     </table>
 </section>
 
-</html>
+<?php writeFooter(); ?>

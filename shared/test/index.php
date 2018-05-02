@@ -9,7 +9,6 @@
 require_once(__DIR__ . "/../../shared/model/user_db.php");
 
 
-
 if ($debugging_login_active !== true) {
     header("Location: ..");
 }

@@ -12,7 +12,7 @@
         <select name="usr_id_adm"  title="usr_id_adm">
             <!-- Loop through each user and add them to dropdown -->
             <?php foreach ($user_list as $user) {
-                if($user['usr_role_cde'] == "ADM") {
+                if($user['usr_role_cde'] != "") {
                 ?>
                 <option value="<?php echo $user['usr_id']?>">
                     <?php echo $user['usr_type_cde'] ?> &nbsp
@@ -34,7 +34,7 @@
         <select name="usr_id_tch"  title="usr_id_tch">
             <!-- Loop through each user and add them to dropdown -->
             <?php foreach ($user_list as $user) {
-                if($user['usr_role_cde'] != "ADM" && $user['usr_type_cde'] != "STD") {
+                if($user['usr_role_cde'] != "ADM" && $user['usr_type_cde'] == "TCH") {
                     ?>
                     <option value="<?php echo $user['usr_id']?>">
                         <?php echo $user['usr_type_cde'] ?> &nbsp

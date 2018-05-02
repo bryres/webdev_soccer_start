@@ -5,6 +5,8 @@ require_once('../../model/coach_db.php');
 
 function loadCoachListPage() {
     global $coachList;
+    global $app_title;
+    global $app_url_path;
 
     $coachList = get_coach_list();
     include 'coach_list.php';
@@ -83,4 +85,3 @@ switch ($action) {
         display_error('Unknown coach action: ' . $action);
         break;
 }
-?>

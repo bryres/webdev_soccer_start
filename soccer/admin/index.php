@@ -1,74 +1,47 @@
 <?php
 include('../util/main.php');
-
-$action = strtolower(filter_input(INPUT_POST, 'action'));
-if ($action == NULL) {
-    $action = strtolower(filter_input(INPUT_GET, 'action'));
-    if ($action == NULL) {
-        $action = 'list_options';
-    }
-}
-//some change
 verify_admin();
 
-switch ($action) {
-    case 'list_options':
-        break;
-    default:
-        display_error('Unknown account action: ' . $action);
-        exit();
-        break;
-}
+$head =
+    '<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css rel="stylesheet">
+    <link href="../../shared/ss/main_new.css' . getVersionString() . '" rel="stylesheet">';
+
+$path = array
+(
+    array("name" => "Soccer Admin", "link" => "/" . $app_url_path)
+);
+
+generateHeader($head, $path);
+
 ?>
 
-<html>
-<head>
-    <title>Soccer League</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<div class="container">
+    <h3 class="center-align">Admin Tools</h3>
+    <ul class="collection with-header">
 
-    <!-- Styles -->
-    <link href="../../shared/ss/main.css<?php echo(getVersionString()); ?>" rel="stylesheet">
-    <link href="../admin/ss/main.css<?php echo(getVersionString()); ?>" rel="stylesheet">
-</head>
-<body id="admin-tools">
-<main>
-    <header>
-        <h1 class="title"><h2>Soccer League Management System</h2></h1>
-        <div id="logout"><h2><a style="cursor: pointer" href="../index.php?action=logout">Log Out</a></h2></div>
-    </header>
-    <br>
-    <div id="wrapper">
-        <table>
-            <tr>
-                <td>
-                    <a href="coaches">
-                        <div class="feature">
-                            <h2>Coaches</h2>
-                            <h4>Manage the list of coaches</h4>
-                        </div>
-                    </a>
-                </td>
-                <td>
-                    <a href="roles">
-                        <div class="feature">
-                            <h2>Roles</h2>
-                            <h4>Assign administrator roles.</h4>
-                        </div>
-                    </a>
-                </td>
-                <td>
-                    <a href="log_viewer">
-                        <div class="feature">
-                            <h2>Log Viewer</h2>
-                            <h4>View the application log.</h4>
-                        </div>
-                    </a>
-                </td>
-            </tr>
-        </table>
-    </div>
+        <a href="coaches" class="collection-item avatar">
+            <i class="material-icons circle purple">list</i>
+            <h6 class="title">Coaches</h6>
+            <p class="small-text">Manage the list of coaches.</p>
+        </a>
 
-    <!-- should probably be /index.php?action=logout in the final, but that won't work right on localhost since everything's in bca-apps rn -->
-</main>
-</body>
-</html>
+        <li class="collection-header">
+        <h4>Advanced</h4>
+        </li>
+        <a href="log_viewer" class="collection-item avatar">
+            <i class="material-icons circle purple">report_problem</i>
+            <h6 class="title">Log Viewer</h6>
+            <p class="small-text">View the application log.</p>
+        </a>
+        <a href="roles" class="collection-item avatar">
+            <i class="material-icons circle purple">person_add</i>
+            <h6 class="title">Roles</h6>
+            <p class="small-text">Set roles for IDA.</p>
+        </a>
+    </ul>
+
+</div>
+
+<?php
+writeFooter();
+

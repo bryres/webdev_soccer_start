@@ -1,14 +1,7 @@
-body {
-    color: black;
+.small_column {
+    width: 15%;
 }
 
-td{
-    padding-left:1em;
-    padding-right:1em;
-    border-bottom: solid;
-}
-
-section {
-    width: 110%;
-    height: 110%;
+.log_msg {
+    width: 50%;
 }
